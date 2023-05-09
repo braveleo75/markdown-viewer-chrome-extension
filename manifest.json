@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Markdown Viewer",
+    "version": "1.0",
+    "description": "A simple Chrome extension to render Markdown files as HTML",
+    "permissions": ["activeTab", "storage","scripting"],
+    "content_scripts": [
+      {
+        "matches": ["*://*/*.md", "file:///*/*.md"],
+        "js": ["content.js","util.js","./vendor/plantuml-encoder.min.js"],
+        "css": ["./styles/style.css"],
+        "module": true
+      }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "48": "./assets/icon.png"
+      },
+      "js" : ["popup.js","util.js"]
+    },
+    "host_permissions": [
+      "file:///*"
+    ],
+    "optional_host_permissions": [
+      "*://*/"
+    ],
+
+    "optional_permissions": [
+        "webRequest"
+    ]
+}
+  
