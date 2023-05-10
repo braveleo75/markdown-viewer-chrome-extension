@@ -2,6 +2,15 @@
 
 This program is a markdown viewer that supports PlantUML. It is implemented in JavaScript and designed to be used as a Chrome extension. The visual theme is based on the dark-dimmed theme used by Github. It was created for personal use.
 
+## Contents
+
+- [Markdown Viewer with PlantUML](#markdown-viewer-with-plantuml)
+  - [Contents](#contents)
+  - [How to use](#how-to-use)
+  - [Example](#example)
+  - [Libraries](#libraries)
+
+
 ## How to use 
 
 1. Clone the project.
@@ -11,19 +20,19 @@ This program is a markdown viewer that supports PlantUML. It is implemented in J
 5. Enter the PlantUML server address in the popup window.
 <br><br><img src="./assets/popup-sample.png" width="auto" alt="result">
 
-## Sample
+## Example
 <div align="center">
 <table cellpadding="5">
 <tbody align="center">
 <tr>
 <td align="left">
 <strong style="font-size: 12px;">
-# Markdown syntax guide<br>
-## Headers<br>
-# This is a Heading h1<br>
-## This is a Heading h2<br>
-_You **can** combine them_
-## Blocks of code<br>
+&#9839;	 Markdown syntax guide<br>
+&#9839;&#9839; Headers<br>
+&#9839; This is a Heading h1<br>
+&#9839;&#9839; This is a Heading h2<br>
+_You **can** combine them_ <br>
+&#9839;&#9839; Blocks of code<br>
 ```cpp<br>
 enum class ERepType : uint8<br>
 {<br>
@@ -32,7 +41,7 @@ enum class ERepType : uint8<br>
 	Property				= 2,	//! Generic property<br>
 };<br>
 ```<br>
-# Blocks of PlantUML<br>
+&#9839; Blocks of PlantUML<br>
 ```plantuml<br>
 @startuml<br>
 Bob -> Alice : hello<br>
