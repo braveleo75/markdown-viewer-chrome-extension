@@ -17,3 +17,21 @@ enum class ERepType : uint8
 @startuml
 Bob -> Alice : hello
 @enduml
+```
+
+```cpp
+// MaxChannelSize는 32767이다.
+const int32 UNetConnection::DEFAULT_MAX_CHANNEL_SIZE = 32767;
+
+// Connection Header
+TArray<UChannel*>	Channels;
+TArray<int32>		OutReliable;
+TArray<int32>		InReliable;
+TArray<int32>		PendingOutRec;
+
+// Connection Source (Initialize)
+Channels.AddDefaulted(MaxChannelSize); // null로 채워진다.
+OutReliable.AddDefaulted(MaxChannelSize);
+InReliable.AddDefaulted(MaxChannelSize);
+PendingOutRec.AddDefaulted(MaxChannelSize);
+```

@@ -16,6 +16,48 @@ async function convertToPlantUmlImage(plantUmlCode) {
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgText);
 }
 
+// add the copy button on code block.
+function addCopyBtn(document,codeBlock) {
+  // Create a wrapper for the code block and the copy button.
+  let wrapper = document.createElement("div");
+  wrapper.style.position = "relative";
+
+  // Move the code block inside the wrapper.
+  codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+  wrapper.appendChild(codeBlock);
+
+  // Add copy button
+  let copyBtn = document.createElement("button");
+  copyBtn.textContent = "Copy";
+  copyBtn.style.position = "absolute";
+  copyBtn.style.right = "0px";
+  copyBtn.style.top = "0px";
+  copyBtn.style.zIndex = 1;
+  copyBtn.className = "copy-btn";
+
+  // Attach click event
+  copyBtn.onclick = function () {
+    let text = codeBlock.textContent;
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        // Change the button text to "Copied!"
+        copyBtn.textContent = "Copied!";
+
+        // Change the button text back to "Copy" after 2 seconds
+        setTimeout(() => {
+          copyBtn.textContent = "Copy";
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Could not copy text: ", err);
+      });
+  };
+
+  // Append the copy button to the wrapper.
+  wrapper.appendChild(copyBtn);
+}
+
 // handleConvertMarkdownToHtml
 async function handleConvertMarkdownToHtml(response) {
   if (response && response.htmlContent) {
@@ -41,6 +83,8 @@ async function handleConvertMarkdownToHtml(response) {
         imgElement.alt = "Generated PlantUML Diagram";
 
         codeBlock.parentElement.replaceChild(imgElement, codeBlock);
+      } else {
+        addCopyBtn(document,codeBlock);
       }
     };
   } else {
