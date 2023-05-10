@@ -2,6 +2,15 @@
 
 This program is a markdown viewer that supports PlantUML. It is implemented in JavaScript and designed to be used as a Chrome extension. The visual theme is based on the dark-dimmed theme used by Github. It was created for personal use.
 
+## How to use 
+
+1. Clone the project.
+2. Launch Chrome browser with the following address: [chrome://extensions](chrome://extnesions)
+3. Activate Developer Mode.
+4. Press the "Load unpacked" button and select the cloned project folder.
+5. Enter the PlantUML server address in the popup window.
+<br><br><img src="./assets/popup-sample.png" width="auto" alt="result">
+
 ## Sample
 <div align="center">
 <table cellpadding="5">
